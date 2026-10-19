@@ -1,0 +1,40 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import StickyBar from '../components/StickyBar.astro';
+---
+<Layout>
+  <Header />
+  
+  <!-- Thank You Section -->
+  <section class="min-h-[70vh] flex items-center justify-center bg-gray-50 px-4 pt-20 pb-16">
+    <div class="max-w-md w-full bg-white rounded-2xl shadow-xl p-8 text-center border-t-8 border-green-500">
+      
+      <!-- Success Icon -->
+      <div class="mx-auto w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mb-6">
+        <i class="fa-solid fa-check text-5xl text-green-500"></i>
+      </div>
+      
+      <!-- Message -->
+      <h1 class="text-3xl font-bold text-gray-800 mb-4">Thank You!</h1>
+      <p class="text-gray-600 mb-8 leading-relaxed">
+        Your service booking request has been received successfully. Our team will call you shortly to confirm your appointment.
+      </p>
+      
+      <!-- Action Buttons -->
+      <div class="flex flex-col gap-3">
+        <a href="tel:9873881738" class="w-full bg-blue-600 text-white font-bold py-3 rounded-lg hover:bg-blue-700 transition flex items-center justify-center gap-2">
+          <i class="fa-solid fa-phone"></i> Call Us Now
+        </a>
+        <a href="/" class="w-full bg-gray-100 text-gray-700 font-bold py-3 rounded-lg hover:bg-gray-200 transition">
+          Back to Home
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <Footer />
+  <StickyBar />
+</Layout>

@@ -1,0 +1,73 @@
+---
+// Header.astro
+---
+<header class="fixed w-full top-0 z-50 bg-white shadow-sm h-16 flex items-center justify-between px-4 md:px-10">
+  <!-- Logo -->
+  <a href="/" class="flex items-center gap-2">
+    <i class="fa-solid fa-droplet text-blue-600 text-2xl"></i>
+    <h1 class="text-xl md:text-2xl font-bold text-blue-600">Arushi RO Service</h1>
+  </a>
+
+  <!-- Mobile Menu Button (Hamburger) -->
+  <button class="md:hidden text-gray-700 text-2xl focus:outline-none z-50 relative" id="menu-btn">
+    <i class="fa-solid fa-bars" id="menu-icon"></i>
+  </button>
+
+  <!-- Desktop Menu -->
+  <nav class="hidden md:flex gap-6 font-medium text-gray-700 items-center">
+    <a href="/" class="hover:text-blue-600 transition">Home</a>
+    <a href="/about" class="hover:text-blue-600 transition">About Us</a>
+    <a href="/#services" class="hover:text-blue-600 transition">Services</a>
+    <a href="/contact" class="hover:text-blue-600 transition">Contact</a>
+    <a href="tel:9873881738" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition">
+      <i class="fa-solid fa-phone mr-2"></i>Call Now
+    </a>
+  </nav>
+</header>
+
+<!-- Mobile Menu Dropdown (Initially Hidden) -->
+<div id="mobile-menu" class="fixed inset-0 bg-white z-40 transform -translate-y-full transition-transform duration-300 ease-in-out pt-20 px-6 md:hidden flex flex-col gap-6 text-lg font-semibold text-gray-800 shadow-xl">
+  <a href="/" class="border-b pb-2 hover:text-blue-600">Home</a>
+  <a href="/about" class="border-b pb-2 hover:text-blue-600">About Us</a>
+  <a href="/#services" class="border-b pb-2 hover:text-blue-600">Services</a>
+  <a href="/contact" class="border-b pb-2 hover:text-blue-600">Contact Us</a>
+  
+  <a href="tel:9873881738" class="mt-4 bg-blue-600 text-white text-center py-3 rounded-md shadow-md hover:bg-blue-700 transition">
+    <i class="fa-solid fa-phone mr-2"></i>Call Now
+  </a>
+</div>
+
+<!-- Spacer to prevent content from hiding behind fixed header -->
+<div class="h-16"></div>
+
+<script>
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuIcon = document.getElementById('menu-icon');
+
+  let isMenuOpen = false;
+
+  menuBtn?.addEventListener('click', () => {
+    isMenuOpen = !isMenuOpen;
+
+    if (isMenuOpen) {
+      // Open menu
+      mobileMenu?.classList.remove('-translate-y-full');
+      mobileMenu?.classList.add('translate-y-0');
+      // Change icon to X
+      if (menuIcon) {
+        menuIcon.classList.remove('fa-bars');
+        menuIcon.classList.add('fa-xmark');
+      }
+    } else {
+      // Close menu
+      mobileMenu?.classList.remove('translate-y-0');
+      mobileMenu?.classList.add('-translate-y-full');
+      // Change icon back to bars
+      if (menuIcon) {
+        menuIcon.classList.remove('fa-xmark');
+        menuIcon.classList.add('fa-bars');
+      }
+    }
+  });
+</script>
