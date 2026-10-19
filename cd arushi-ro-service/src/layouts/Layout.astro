@@ -10,13 +10,19 @@ import '../styles/global.css';
 		<meta name="description" content="Arushi RO Service - Expert RO Repair, Installation & Maintenance in Delhi NCR. Call 9873881738." />
 		<title>Arushi RO Service | Delhi's Trusted RO Experts</title>
 
-		<!-- Google Fonts -->
+		<!-- Hero Image Preload (LCP Fast load ke liye) -->
+		<link rel="preload" as="image" href="/images/hero-bg.jpg" fetchpriority="high">
+
+		<!-- Google Fonts (Preconnect & Display Swap) -->
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-		<!-- FontAwesome -->
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+		<!-- FontAwesome (Async Load - Render Blocking Fix) -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+		<noscript>
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+		</noscript>
 	</head>
 	<body class="bg-gray-50 text-gray-800 antialiased">
 		<slot />
